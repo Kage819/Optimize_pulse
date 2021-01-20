@@ -48,8 +48,18 @@ initial_v = np.array([...])
 python OptPulse.py
 ```
 optimization.py　で生成されたフーリエ次数をndarray形式に変更し、OptPulse.pyに直書きする。
-フーリエ次数が書かれた状態で OptPulse.py を実行すると、最適化パルスのI, Q波形がFvxmy, Fvymy　という名前で出力される。
-
+つまり、生成した2n要素を持つフーリエ次数リストを[...]で表すと、
+```
+pulse1 = np.array([...])
+```
+と書く。
+OptPulse.py を実行すると、最適化パルスのI, Q波形がFvxmy, Fvymy　という名前で出力される。
+```
+plt.plot(tlist,Fvxmy)
+plt.plot(tlist,Fvymy)
+plt.swow()
+```
+を付け加えることで、下図のような滑らかな波形が生成されていることが確認できる。
 最適化パルスの概形図？
 
 
@@ -65,6 +75,7 @@ Fidelity.pyにはFidelityを計算する関数を記載した。
 
 性能評価としてmain_for_d-Fidelity.pyとerror_fidelity.pyを作成した。
 
+### 結合定数依存性
 main_for_d-Fidelity.pyはFidelityの結合定数依存性をシミュレーションするものである。
 外部ライブラリは図の描画と結果の保存を行いたいため、matplotlib, numpyをインポートしている。
 必要な自作モジュールは、data, Hamiltonian, OptPulse(pulse8), Ideal, Fidelityである。
@@ -77,7 +88,7 @@ main_for_d-Fidelityを実行すると、同ディレクトリ上に.npy形式で
 
 全体を関数にした方がよさげなやつ（引数：I,Q,sf,d_list,T,save_name）
 
-
+### エラー依存性
 error_fidelity.pyはFidelityのエラー依存性をシミュレーションするものである。
 必須ライブラリはnumpyである。
 自作モジュールは、data, Hamiltonian, OptPulse(pulse8), Ideal, Fidelity, errorが必要である。
