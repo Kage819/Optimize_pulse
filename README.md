@@ -19,29 +19,25 @@ data.py, Hamiltonian.py はコードの基本情報について書かれてい�
 
 
 
-## 最適化について
-'''
+## 数値最適化について
+```
 python optimization.py
-'''
-optimization.py は最適化を実行し、制御ハミルトニアンのフーリエ次数を得るコードである。
-必要な外部ライブラリは、numpy, scipy, copyで、必要な自作モジュールはdataのみである。
+```
+optimization.py は最適化を実行し、制御ハミルトニアンのフーリエ次数を得るコードである(修論参照)。
 最適化が終わると下図のような結果が得られる。
 (x: array([]))は2nの要素を持っているが, 最初からn番目がI成分のフーリエ次数で、n番目から最後までがQ成分のフーリエ次数である。
 ![スクリーンショット 2021-01-19 17 32 31](https://user-images.githubusercontent.com/63832046/105008417-8e9c8900-5a7c-11eb-9bba-c05d16e140f8.png)
 
 
+## 最適化パルスについて
+```
+python OptPulse.py
+```
 optimization.py　で生成されたフーリエ次数をndarray形式に変更し、OptPulse.pyに直書きする。
 フーリエ次数が書かれた状態で OptPulse.py を実行すると、最適化パルスのI, Q波形がFvxmy, Fvymy　という名前で出力される。
-必要な外部ライブラリは、numpy, copy, scipyで、必要な自作モジュールはdata, Hamiltonianである。
 
 最適化パルスの概形図？
 
-pulse8.py では最適化パルスの性能比較として8パルスの生成を行っている。
-最適化パルス同様、I,Qパルスをfvx8, fvy8という名前で生成した。
-各種パラメーターは論文を参照。
-必要なライブラリは、numpy,copyで、必要な自作モジュールはdataである.
-
-８ぱるすの図。変数がどの部分にあたるかをkeynoteを使って説明
 
 
 Fidelityによる性能評価を行うために、Ideal.pyとFidelity.pyを作成した。
@@ -88,5 +84,12 @@ imshowでプロットすると下図のようなカラーマップが得られ�
 [compare_error2D_heatmap_d25k_30us_2repeat_0108.pdf](https://github.com/Kage819/Optimize_pulse/files/5839811/compare_error2D_heatmap_d25k_30us_2repeat_0108.pdf)
 
 
+## パルスの比較対象
+```
+pulse8.py
+```
+修論では、従来から存在する8パルスと生成した数値最適化パルスの性能を比較している。 
+pulse8.py により、最適化パルス同様、I,Qパルスをfvx8, fvy8という名前で生成した。
+各種パラメーターは論文を参照。
 
-
+８ぱるすの図。変数がどの部分にあたるかをkeynoteを使って説明
