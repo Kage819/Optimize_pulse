@@ -98,10 +98,12 @@ Fidelityの計算は修論を参照。
 
 
 ### 結合定数依存性
+```
+python main_for_d-Fidelity.py
+```
 main_for_d-Fidelity.pyはFidelityの結合定数依存性をシミュレーションするものである。
-外部ライブラリは図の描画と結果の保存を行いたいため、matplotlib, numpyをインポートしている。
-必要な自作モジュールは、data, Hamiltonian, OptPulse(pulse8), Ideal, Fidelityである。
-main_for_d-Fidelityを実行すると、同ディレクトリ上に.npy形式で各結合定数のFidelityが保存される
+data.pyでシミュレーション内容(スピン数、発展時間、計算格子数)を変更可能。
+main_for_d-Fidelityを実行すると、同ディレクトリ上に(.npy)形式で各結合定数のFidelityが保存される
 (ex : d-fidelity_60us_opt_pulse_1211.npy)。
 シミュレーションに使用した結合定数と保存した結果をそれぞれ横軸、縦軸としてプロットすると下図が得られる。
 
@@ -111,23 +113,28 @@ main_for_d-Fidelityを実行すると、同ディレクトリ上に.npy形式で
 全体を関数にした方がよさげなやつ（引数：I,Q,sf,d_list,T,save_name）
 
 ### エラー依存性
+```
+python error_fidelity.py
+```
+
 error_fidelity.pyはFidelityのエラー依存性をシミュレーションするものである。
-必須ライブラリはnumpyである。
-自作モジュールは、data, Hamiltonian, OptPulse(pulse8), Ideal, Fidelity, errorが必要である。
+data.pyでシミュレーションの基本情報を変更可能。
+振幅エラーe1と位相エラーθはリスト形式にする必要がある。
 error_fidelity.pyを実行すると、同ディレクトリ上に.npy形式で(len(e1),len(theta))のシミュレーション結果が複数保存される。
 保存される数は、dlistの大きさと同じである。
 
 
 
+## 結果の描画
+```
+python plot1127.py
+```
 
-性能評価で保存した.npy形式のシミュレーション結果はplot1127.pyでプロットした。
-必須外部ライブラリはnumpy,matplotlib で、画像の保存のためにpylabをインポートした。
-自作モジュールは, numpy, dataが必要である。
+エラー依存性はimshowを用いてカラーマップで描画した。
 9行目から17行目はコメントアウトしているが、保存した.npy形式の結合定数依存性結果をnp.loadで読みだしており、それをプロットしている。
 20行目からエラー依存性のプロットを行っている。
 21, 29行目ではusing npyファイルから.npy形式のシミュレーション結果を読み込んでいる。
 シミュレーション結果を手動でusing npyファイルに移動しているので、深い意味はない。
-imshowでプロットすると下図のようなカラーマップが得られる。
 [compare_error2D_heatmap_d25k_30us_2repeat_0108.pdf](https://github.com/Kage819/Optimize_pulse/files/5839811/compare_error2D_heatmap_d25k_30us_2repeat_0108.pdf)
 
 
