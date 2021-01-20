@@ -19,7 +19,10 @@ data.py, Hamiltonian.py はコードの基本情報について書かれてい�
 
 
 
-
+## 最適化について
+'''
+python optimization.py
+'''
 optimization.py は最適化を実行し、制御ハミルトニアンのフーリエ次数を得るコードである。
 必要な外部ライブラリは、numpy, scipy, copyで、必要な自作モジュールはdataのみである。
 最適化が終わると下図のような結果が得られる。
