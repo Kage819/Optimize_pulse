@@ -69,14 +69,33 @@ plt.swow()
 ## 性能評価
 Fidelityによる性能評価を行うために、Ideal.pyとFidelity.pyを作成した。
 Ideal.pyは理想ハミルトニアンの時間発展を計算する関数を記載した。
-Uideal関数の引数に理想ハミルトニアンと発展時間を渡すと, 入力した発展時間までのユニタリ発展行列を計算しリストとして返す。
+```
+def Uideal(Hamil,T):
+    rList = []
+    tlist2 = np.linspace(0,T,M) 
+    for i in range(M):
+        kata = -1j * Hamil * tlist2[i]
+        rList.append(expm(kata))
+    return rList
+```
+Hamilに理想ハミルトニアン、Tに発展時間を渡すと、T/M刻みでTまでのユニタリ行列を計算しリストとして返す。
+
 
 Fidelity.pyにはFidelityを計算する関数を記載した。
-スピン数n, 計算格子数Mとしたとき、(n*n)リストの最適化パルスによるユニタリ行列リストと(n*n*M)リストの理想ハミルトニアンのユニタリ行列リストを引数として渡すとFidelityを計算する。
-どのような計算かは修論を参照。
+```
+def Fidelity_for_error(Uopt,Utarget):
+    """
+    Uopt^\dagger(T) と Uideal(t)の内積でFidelityを計算。ダガーは別のメソッドで計算
+    Uopt : n*n　配列のダガー。最適化パルスに関する行列
+    Utarget :M個の n*n 配列。理想ハミルトニアンに関する行列
+    """
+    aa = np.dot(dagger(Uopt),Utarget[len(tlist)-1])
+    aa = np.abs(np.trace(aa)) / len(Uopt)
+    return aa
+```
+スピン数をn、計算格子数をMとしたとき、Uoptには(n×n)のリスト、Utargetには(n×n×M)リストの理想ハミルトニアンにユニタリ行列リストを渡すとFideiltyを計算する。
+Fidelityの計算は修論を参照。
 
-
-性能評価としてmain_for_d-Fidelity.pyとerror_fidelity.pyを作成した。
 
 ### 結合定数依存性
 main_for_d-Fidelity.pyはFidelityの結合定数依存性をシミュレーションするものである。
