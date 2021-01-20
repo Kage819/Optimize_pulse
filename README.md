@@ -60,7 +60,10 @@ plt.plot(tlist,Fvymy)
 plt.swow()
 ```
 を付け加えることで、下図のような滑らかな波形が生成されていることが確認できる。
-最適化パルスの概形図？
+
+
+![opt_pulse](https://user-images.githubusercontent.com/63832046/105141420-7724d500-5b3c-11eb-93b6-5f243446e3bf.png)
+
 
 
 ## 性能評価
