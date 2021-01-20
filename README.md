@@ -50,6 +50,9 @@ main_for_d-Fidelityを実行すると、同ディレクトリ上に.npy形式で
 (ex : d-fidelity_60us_opt_pulse_1211.npy)。
 シミュレーションに使用した結合定数と保存した結果をそれぞれ横軸、縦軸としてプロットすると下図が得られる。
 
+[d-Fidelity_30us_2repeat_0107.pdf](https://github.com/Kage819/Optimize_pulse/files/5839816/d-Fidelity_30us_2repeat_0107.pdf)
+
+
 全体を関数にした方がよさげなやつ（引数：I,Q,sf,d_list,T,save_name）
 
 
@@ -70,6 +73,7 @@ error_fidelity.pyを実行すると、同ディレクトリ上に.npy形式で(l
 21, 29行目ではusing npyファイルから.npy形式のシミュレーション結果を読み込んでいる。
 シミュレーション結果を手動でusing npyファイルに移動しているので、深い意味はない。
 imshowでプロットすると下図のようなカラーマップが得られる。
+[compare_error2D_heatmap_d25k_30us_2repeat_0108.pdf](https://github.com/Kage819/Optimize_pulse/files/5839811/compare_error2D_heatmap_d25k_30us_2repeat_0108.pdf)
 
 
 
