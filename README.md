@@ -11,7 +11,11 @@
 - scipy
 - pylab
 - scipy
-最適化及びシミュレーションを行う際に、data.py, Hamiltonian.py は必要なファイルである。
+- sympy
+
+
+data.py, Hamiltonian.py はコードの基本情報について書かれている。
+シミューションの際に、スピン数を変更したいときや、パルス照射時間を変更したいときは、data.pyのnとT1を書き換える。
 
 
 
