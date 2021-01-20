@@ -146,4 +146,5 @@ pulse8.py
 pulse8.py により、最適化パルス同様、I,Qパルスをfvx8, fvy8という名前で生成した。
 各種パラメーターは論文を参照。
 
-８ぱるすの図。変数がどの部分にあたるかをkeynoteを使って説明
+![8pulse](https://user-images.githubusercontent.com/63832046/105147716-e7375900-5b44-11eb-8b0c-7858c6efa9a4.png)
+
