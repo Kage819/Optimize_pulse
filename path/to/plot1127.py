@@ -41,7 +41,7 @@ test_data = np.load(os.getcwd()+"/using npy/"+"8pulse_result_with_error_d5k_1214
 
 
 X, Y = np.meshgrid(e1, theta)
-extent=[e1[0],e1[-1],theta[0],theta[-1]]
+extent=[theta[0],theta[-1],e1[0],e1[-1]]
 # extent=[e1[0],e1[-1],-16,16]
 
 
@@ -49,8 +49,8 @@ vmin = 0.98
 vmax = 1
 plt.subplot(1,2,1)
 m_o = plt.imshow(test_data,aspect="auto",extent=extent,vmin=vmin,vmax=vmax)
-plt.xlabel("amplitude error")
-plt.ylabel("phase error")
+plt.xlabel("phase error")
+plt.ylabel("amplitude error")
 plt.title("8pulse")
 plt.subplot(1,2,2)
 m_o1 = plt.imshow(optimize_,aspect="auto",extent=extent,vmin=vmin,vmax=vmax)
@@ -63,7 +63,7 @@ plt.tick_params(bottom=True,
                left=True,
                right=False,
                top=False)
-plt.xlabel("amplitude error")
+plt.xlabel("phase error")
 # plt.subplot(1,3,3)
 # plt.imshow(old_,aspect="auto",extent=extent,vmin=vmin,vmax=vmax)
 # plt.title("experiment")
@@ -75,8 +75,8 @@ plt.xlabel("amplitude error")
 #                left=True,
 #                right=False,
 #                top=False)
-# plt.xlabel("amplitude error")
-# plt.ylabel("phase error")
+# plt.xlabel("phase error")
+# plt.ylabel("amplitude error")
 pp = plt.colorbar(m_o1)
 # pp.set_clim(0.97,1)
 pylab.savefig("compare_error2D_heatmap_d15k_60us_1214",bbox_inches="tight")
